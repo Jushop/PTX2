@@ -1,0 +1,28 @@
+#!/bin/bash
+
+printf "\n"
+printf "ZADANIE:\n" 
+printf "    Korektor niechlujnej polszczyzny:\n\n"
+printf "Wykonane: błędy ortograficzne, brak wielkiej litery, brak znaków diakrytycznych. Słownik 2 000 000 słów (plik Slownik1.txt). Korektor wypisuje zdanie o najmniejszej wadze. Przykładowe zamiany np:\n ż na Ż (waga 1),\n ch na h (waga 1),\n ji na ii (waga 1),\n e na ę (waga 1),\n Ą na a (waga 2),\n rz na Ż (waga 2)\n\n"
+printf "AUTOR:\n"
+printf "     Justyna Hoppe (nr indeksu - 396331)\n\n"
+printf "Przykładowe wykonanie programu:\n\n"
+printf "Przykład 1. \nw słowniku: Chruszczow/Chruszczów:\nInput: hruszczow \n"
+echo hruszczow | thraxrewrite-tester --noutput=1 --far=corrector.far --rules=corrector | cut -d ' ' -f 3-6
+
+printf "\nPrzykład 2. \nw słowniku: wężownico:\nInput: werzownico\n"
+echo werzownico | thraxrewrite-tester --noutput=1 --far=corrector.far --rules=corrector | cut -d ' ' -f 3-6
+
+printf "\nPrzykład 3. \nw słowniku: Panonii:\nInput: panoni\n"
+echo panoni | thraxrewrite-tester --noutput=1 --far=corrector.far --rules=corrector | cut -d ' ' -f 3-6
+
+printf "\nPrzykład 4. \nw słowniku: rzepichą/Rzepichą/rzepicha/Rzepicha/ Rzepichom:\nInput: żepihą\n"
+echo żepihą | thraxrewrite-tester --noutput=1 --far=corrector.far --rules=corrector | cut -d ' ' -f 3-6
+
+printf "Przykład 5. \nw słowniku: Kmiecińskich\nInput: kmiećnskih\n"
+echo kmiećnskih | thraxrewrite-tester --noutput=1 --far=corrector.far --rules=corrector | cut -d ' ' -f 3-6
+
+
+
+
+
